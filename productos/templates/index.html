@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendador de Productos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recomendador de Productos</h1>
+
+        <form action="/recomendar" method="post" class="form">
+            <label for="producto">Selecciona un producto para obtener recomendaciones:</label>
+            <select name="producto" id="producto">
+                {% for producto in productos %}
+                    <option value="{{ producto }}">{{ producto }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Recomendar</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if recomendaciones %}
+            <h2>Recomendaciones:</h2>
+            <ul>
+                {% for recomendacion in recomendaciones %}
+                    <li>Si compras <strong>{{ producto_usuario }}</strong>, podrías también querer: <strong>{{ recomendacion.consequents[0] }}</strong></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <footer>
+            <p>Jari de la Cruz / Harby Santos / Jhon Apostol</p>
+        </footer>
+    </div>
+</body>
+</html>

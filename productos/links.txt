@@ -1,0 +1,4 @@
+link pythonanywhere:
+ninidani.pythonanywhere.com
+link de colab:
+https://colab.research.google.com/drive/1Pd9HVe2FLtsEHaW07itnX0b1yblYu3fN?usp=sharing
