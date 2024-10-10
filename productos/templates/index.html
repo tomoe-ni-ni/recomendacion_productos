@@ -14,7 +14,7 @@
             <label for="producto">Selecciona un producto para obtener recomendaciones:</label>
             <select name="producto" id="producto">
                 {% for producto in productos %}
-                    <option value="{{ producto }}">{{ producto }}</option>
+                    <option value="{{ producto }}" {% if producto == producto_seleccionado %}selected{% endif %}>{{ producto }}</option>
                 {% endfor %}
             </select>
             <button type="submit">Recomendar</button>
